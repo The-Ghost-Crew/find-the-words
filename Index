@@ -1,0 +1,59 @@
+index.html:
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find a Word That's Not in English</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Find a Word That's Not in English</h1>
+    <input type="text" id="wordInput" placeholder="Enter a word">
+    <button onclick="checkWord()">Check</button>
+    <p id="message"></p>
+    <script src="script.js"></script>
+</body>
+</html>
+```
+
+style.css:
+```css
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 50px;
+}
+input, button {
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 16px;
+}
+```
+
+script.js:
+```js
+function checkWord() {
+    let word = document.getElementById("wordInput").value.trim();
+    let message = document.getElementById("message");
+    
+    if (!word) {
+        message.innerText = "Please enter a word.";
+        return;
+    }
+    
+    fetch(`https://your-api.com/check-word?word=${word}`) // Replace with actual API endpoint
+        .then(response => response.json())
+        .then(data => {
+            if (data.found) {
+                message.innerText = "Word is in English. Try again!";
+            } else {
+                message.innerText = "Success! This word is not in the list.";
+            }
+        })
+        .catch(error => {
+            message.innerText = "Error checking word. Try again later.";
+        });
+}
+```
