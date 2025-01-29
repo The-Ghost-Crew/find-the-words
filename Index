@@ -1,0 +1,19 @@
+index.html:
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find a Word That's Not in English</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Find a Word That's Not in English</h1>
+    <input type="text" id="wordInput" placeholder="Enter a word">
+    <button onclick="checkWord()">Check</button>
+    <p id="message"></p>
+    <script src="script.js"></script>
+</body>
+</html>
+```
